@@ -1,0 +1,169 @@
+﻿using System.Drawing;
+using System.Windows.Forms;
+
+namespace _115_03_05
+{
+    partial class Form1
+    {
+        /// <summary>
+        ///  Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        // Controls
+        private GroupBox groupBoxOilLube;
+        private CheckBox checkBoxOilChange;
+        private CheckBox checkBoxLube;
+        private GroupBox groupBoxFlush;
+        private CheckBox checkBoxRadiatorFlush;
+        private CheckBox checkBoxTransmissionFlush;
+        private GroupBox groupBoxMisc;
+        private CheckBox checkBoxInspection;
+        private CheckBox checkBoxMuffler;
+        private CheckBox checkBoxTireRotate;
+        private GroupBox groupBoxPartsLabor;
+        private Label labelParts;
+        private TextBox textBoxParts;
+        private Label labelHours;
+        private TextBox textBoxHours;
+        private GroupBox groupBoxSummary;
+        private Label labelServiceAndLabor;
+        private TextBox txtServiceAndLabor;
+        private Label labelPartsFee;
+        private TextBox txtPartsFee;
+        private Label labelTax;
+        private TextBox txtTax;
+        private Label labelTotal;
+        private TextBox txtTotal;
+        private Button calculateButton;
+        private Button clearButton;
+        private Button exitButton;
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        ///  Required method for Designer support - do not modify
+        ///  the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            groupBoxOilLube = new GroupBox();
+            checkBoxOilChange = new CheckBox();
+            checkBoxLube = new CheckBox();
+            groupBoxFlush = new GroupBox();
+            checkBoxRadiatorFlush = new CheckBox();
+            checkBoxTransmissionFlush = new CheckBox();
+            groupBoxMisc = new GroupBox();
+            checkBoxInspection = new CheckBox();
+            checkBoxMuffler = new CheckBox();
+            checkBoxTireRotate = new CheckBox();
+            groupBoxPartsLabor = new GroupBox();
+            labelParts = new Label();
+            textBoxParts = new TextBox();
+            labelHours = new Label();
+            textBoxHours = new TextBox();
+            groupBoxSummary = new GroupBox();
+            labelServiceAndLabor = new Label();
+            txtServiceAndLabor = new TextBox();
+            labelPartsFee = new Label();
+            txtPartsFee = new TextBox();
+            labelTax = new Label();
+            txtTax = new TextBox();
+            labelTotal = new Label();
+            txtTotal = new TextBox();
+            calculateButton = new Button();
+            clearButton = new Button();
+            exitButton = new Button();
+            groupBoxOilLube.SuspendLayout();
+            groupBoxFlush.SuspendLayout();
+            groupBoxMisc.SuspendLayout();
+            groupBoxPartsLabor.SuspendLayout();
+            groupBoxSummary.SuspendLayout();
+            SuspendLayout();
+            // 
+            // groupBoxOilLube
+            // 
+            groupBoxOilLube.Controls.Add(checkBoxOilChange);
+            groupBoxOilLube.Controls.Add(checkBoxLube);
+            groupBoxOilLube.Location = new Point(12, 12);
+            groupBoxOilLube.Name = "groupBoxOilLube";
+            groupBoxOilLube.Size = new Size(240, 134);
+            groupBoxOilLube.TabIndex = 0;
+            groupBoxOilLube.TabStop = false;
+            groupBoxOilLube.Text = "機油和潤滑";
+            // 
+            // checkBoxOilChange
+            // 
+            checkBoxOilChange.Location = new Point(10, 29);
+            checkBoxOilChange.Name = "checkBoxOilChange";
+            checkBoxOilChange.Size = new Size(200, 30);
+            checkBoxOilChange.TabIndex = 0;
+            checkBoxOilChange.Text = "更換機油 (NT$780)";
+            // 
+            // checkBoxLube
+            // 
+            checkBoxLube.Location = new Point(10, 83);
+            checkBoxLube.Name = "checkBoxLube";
+            checkBoxLube.Size = new Size(200, 27);
+            checkBoxLube.TabIndex = 1;
+            checkBoxLube.Text = "潤滑保養 (NT$540)";
+            checkBoxLube.CheckedChanged += checkBoxLube_CheckedChanged;
+            // 
+            // groupBoxFlush
+            // 
+            groupBoxFlush.Controls.Add(checkBoxRadiatorFlush);
+            groupBoxFlush.Controls.Add(checkBoxTransmissionFlush);
+            groupBoxFlush.Location = new Point(262, 12);
+            groupBoxFlush.Name = "groupBoxFlush";
+            groupBoxFlush.Size = new Size(240, 134);
+            groupBoxFlush.TabIndex = 1;
+            groupBoxFlush.TabStop = false;
+            groupBoxFlush.Text = "清洗服務";
+            // 
+            // checkBoxRadiatorFlush
+            // 
+            checkBoxRadiatorFlush.Location = new Point(10, 29);
+            checkBoxRadiatorFlush.Name = "checkBoxRadiatorFlush";
+            checkBoxRadiatorFlush.Size = new Size(200, 30);
+            checkBoxRadiatorFlush.TabIndex = 0;
+            checkBoxRadiatorFlush.Text = "水箱清洗 (NT$900)";
+            // 
+            // checkBoxTransmissionFlush
+            // 
+            checkBoxTransmissionFlush.Location = new Point(10, 83);
+            checkBoxTransmissionFlush.Name = "checkBoxTransmissionFlush";
+            checkBoxTransmissionFlush.Size = new Size(200, 27);
+            checkBoxTransmissionFlush.TabIndex = 1;
+            checkBoxTransmissionFlush.Text = "變速箱清洗 (NT$2,400)";
+            // 
+            // groupBoxMisc
+            // 
+            groupBoxMisc.Controls.Add(checkBoxInspection);
+            groupBoxMisc.Controls.Add(checkBoxMuffler);
+            groupBoxMisc.Controls.Add(checkBoxTireRotate);
+            groupBoxMisc.Location = new Point(22, 172);
+            groupBoxMisc.Name = "groupBoxMisc";
+            groupBoxMisc.Size = new Size(240, 130);
+            groupBoxMisc.TabIndex = 2;
+            groupBoxMisc.TabStop = false;
+            groupBoxMisc.Text = "其他服務";
+            // 
+            // checkBoxInspection
+            // 
+            checkBoxInspection.Location = new Point(6, 70);
+            checkBoxInspection.Name = "checkBoxInspection";
+            checkBoxInspection.Size = new Size(200, 28);
+            checkBoxInspection.TabIndex = 0;
+            checkBoxInspection.Text = "檢驗 (NT$450)";
+            // 
+            // checkBoxMuffler
+   

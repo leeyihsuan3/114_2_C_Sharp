@@ -1,0 +1,258 @@
+﻿using System.Windows.Forms;
+
+using System.Windows.Forms;
+
+namespace _115_03_05
+{
+    partial class Form1
+    {
+        /// <summary>
+        ///  Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        // Controls
+        private GroupBox groupBoxOilLube;
+        private CheckBox checkBoxOilChange;
+        private CheckBox checkBoxLube;
+        private GroupBox groupBoxFlush;
+        private CheckBox checkBoxRadiatorFlush;
+        private CheckBox checkBoxTransmissionFlush;
+        private GroupBox groupBoxMisc;
+        private CheckBox checkBoxInspection;
+        private CheckBox checkBoxMuffler;
+        private CheckBox checkBoxTireRotate;
+        private GroupBox groupBoxPartsLabor;
+        private Label labelParts;
+        private TextBox textBoxParts;
+        private Label labelHours;
+        private TextBox textBoxHours;
+        private GroupBox groupBoxSummary;
+        private Label labelServiceAndLabor;
+        private TextBox txtServiceAndLabor;
+        private Label labelPartsFee;
+        private TextBox txtPartsFee;
+        private Label labelTax;
+        private TextBox txtTax;
+        private Label labelTotal;
+        private TextBox txtTotal;
+        private Button calculateButton;
+        private Button clearButton;
+        private Button exitButton;
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        ///  Required method for Designer support - do not modify
+        ///  the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            groupBoxOilLube = new GroupBox();
+            checkBoxOilChange = new CheckBox();
+            checkBoxLube = new CheckBox();
+            groupBoxFlush = new GroupBox();
+            checkBoxRadiatorFlush = new CheckBox();
+            checkBoxTransmissionFlush = new CheckBox();
+            groupBoxMisc = new GroupBox();
+            checkBoxInspection = new CheckBox();
+            checkBoxMuffler = new CheckBox();
+            checkBoxTireRotate = new CheckBox();
+            groupBoxPartsLabor = new GroupBox();
+            labelParts = new Label();
+            textBoxParts = new TextBox();
+            labelHours = new Label();
+            textBoxHours = new TextBox();
+            groupBoxSummary = new GroupBox();
+            txtServiceAndLabor = new TextBox();
+            groupBoxOilLube.SuspendLayout();
+            groupBoxFlush.SuspendLayout();
+            groupBoxMisc.SuspendLayout();
+            groupBoxPartsLabor.SuspendLayout();
+            groupBoxSummary.SuspendLayout();
+            SuspendLayout();
+            // 
+            // groupBoxOilLube
+            // 
+            groupBoxOilLube.Controls.Add(checkBoxOilChange);
+            groupBoxOilLube.Controls.Add(checkBoxLube);
+            groupBoxOilLube.Location = new Point(12, 12);
+            groupBoxOilLube.Name = "groupBoxOilLube";
+            groupBoxOilLube.Size = new Size(240, 134);
+            groupBoxOilLube.TabIndex = 0;
+            groupBoxOilLube.TabStop = false;
+            groupBoxOilLube.Text = "機油和潤滑";
+            // 
+            // checkBoxOilChange
+            // 
+            checkBoxOilChange.Location = new Point(10, 29);
+            checkBoxOilChange.Name = "checkBoxOilChange";
+            checkBoxOilChange.Size = new Size(200, 30);
+            checkBoxOilChange.TabIndex = 0;
+            checkBoxOilChange.Text = "更換機油 (NT$780)";
+            // 
+            // checkBoxLube
+            // 
+            checkBoxLube.Location = new Point(10, 83);
+            checkBoxLube.Name = "checkBoxLube";
+            checkBoxLube.Size = new Size(200, 27);
+            checkBoxLube.TabIndex = 1;
+            checkBoxLube.Text = "潤滑保養 (NT$540)";
+            checkBoxLube.CheckedChanged += checkBoxLube_CheckedChanged;
+            // 
+            // groupBoxFlush
+            // 
+            groupBoxFlush.Controls.Add(checkBoxRadiatorFlush);
+            groupBoxFlush.Controls.Add(checkBoxTransmissionFlush);
+            groupBoxFlush.Location = new Point(262, 12);
+            groupBoxFlush.Name = "groupBoxFlush";
+            groupBoxFlush.Size = new Size(240, 134);
+            groupBoxFlush.TabIndex = 1;
+            groupBoxFlush.TabStop = false;
+            groupBoxFlush.Text = "清洗服務";
+            // 
+            // checkBoxRadiatorFlush
+            // 
+            checkBoxRadiatorFlush.Location = new Point(10, 29);
+            checkBoxRadiatorFlush.Name = "checkBoxRadiatorFlush";
+            checkBoxRadiatorFlush.Size = new Size(200, 30);
+            checkBoxRadiatorFlush.TabIndex = 0;
+            checkBoxRadiatorFlush.Text = "水箱清洗 (NT$900)";
+            // 
+            // checkBoxTransmissionFlush
+            // 
+            checkBoxTransmissionFlush.Location = new Point(10, 83);
+            checkBoxTransmissionFlush.Name = "checkBoxTransmissionFlush";
+            checkBoxTransmissionFlush.Size = new Size(200, 27);
+            checkBoxTransmissionFlush.TabIndex = 1;
+            checkBoxTransmissionFlush.Text = "變速箱清洗 (NT$2,400)";
+            // 
+            // groupBoxMisc
+            // 
+            groupBoxMisc.Controls.Add(checkBoxInspection);
+            groupBoxMisc.Controls.Add(checkBoxMuffler);
+            groupBoxMisc.Controls.Add(checkBoxTireRotate);
+            groupBoxMisc.Controls.Add(groupBoxPartsLabor);
+            groupBoxMisc.Location = new Point(22, 172);
+            groupBoxMisc.Name = "groupBoxMisc";
+            groupBoxMisc.Size = new Size(240, 130);
+            groupBoxMisc.TabIndex = 2;
+            groupBoxMisc.TabStop = false;
+            groupBoxMisc.Text = "其他服務";
+            // 
+            // checkBoxInspection
+            // 
+            checkBoxInspection.Location = new Point(6, 70);
+            checkBoxInspection.Name = "checkBoxInspection";
+            checkBoxInspection.Size = new Size(200, 28);
+            checkBoxInspection.TabIndex = 0;
+            checkBoxInspection.Text = "檢驗 (NT$450)";
+            // 
+            // checkBoxMuffler
+            // 
+            checkBoxMuffler.Location = new Point(6, 36);
+            checkBoxMuffler.Name = "checkBoxMuffler";
+            checkBoxMuffler.Size = new Size(200, 28);
+            checkBoxMuffler.TabIndex = 1;
+            checkBoxMuffler.Text = "更換消音器 (NT$3,000)";
+            // 
+            // checkBoxTireRotate
+            // 
+            checkBoxTireRotate.Location = new Point(6, 96);
+            checkBoxTireRotate.Name = "checkBoxTireRotate";
+            checkBoxTireRotate.Size = new Size(200, 28);
+            checkBoxTireRotate.TabIndex = 2;
+            checkBoxTireRotate.Text = "輪胎換位 (NT$600)";
+            // 
+            // groupBoxPartsLabor
+            // 
+            groupBoxPartsLabor.Controls.Add(labelParts);
+            groupBoxPartsLabor.Controls.Add(textBoxParts);
+            groupBoxPartsLabor.Controls.Add(labelHours);
+            groupBoxPartsLabor.Controls.Add(textBoxHours);
+            groupBoxPartsLabor.Location = new Point(240, 12);
+            groupBoxPartsLabor.Name = "groupBoxPartsLabor";
+            groupBoxPartsLabor.Size = new Size(240, 130);
+            groupBoxPartsLabor.TabIndex = 3;
+            groupBoxPartsLabor.TabStop = false;
+            groupBoxPartsLabor.Text = "零件和工時";
+            // 
+            // labelParts
+            // 
+            labelParts.Location = new Point(10, 26);
+            labelParts.Name = "labelParts";
+            labelParts.Size = new Size(100, 20);
+            labelParts.TabIndex = 0;
+            labelParts.Text = "零件 (NT$)";
+            // 
+            // textBoxParts
+            // 
+            textBoxParts.Location = new Point(110, 24);
+            textBoxParts.Name = "textBoxParts";
+            textBoxParts.Size = new Size(110, 30);
+            textBoxParts.TabIndex = 1;
+            // 
+            // labelHours
+            // 
+            labelHours.Location = new Point(10, 62);
+            labelHours.Name = "labelHours";
+            labelHours.Size = new Size(100, 20);
+            labelHours.TabIndex = 2;
+            labelHours.Text = "工時數 (小時)";
+            // 
+            // textBoxHours
+            // 
+            textBoxHours.Location = new Point(110, 60);
+            textBoxHours.Name = "textBoxHours";
+            textBoxHours.Size = new Size(110, 30);
+            textBoxHours.TabIndex = 3;
+            // 
+            // groupBoxSummary
+            // 
+            groupBoxSummary.Controls.Add(txtServiceAndLabor);
+            groupBoxSummary.Location = new Point(22, 331);
+            groupBoxSummary.Name = "groupBoxSummary";
+            groupBoxSummary.Size = new Size(490, 110);
+            groupBoxSummary.TabIndex = 4;
+            groupBoxSummary.TabStop = false;
+            groupBoxSummary.Text = "費用摘要";
+            // 
+            // txtServiceAndLabor
+            // 
+            txtServiceAndLabor.Location = new Point(100, 46);
+            txtServiceAndLabor.Name = "txtServiceAndLabor";
+            txtServiceAndLabor.Size = new Size(320, 30);
+            txtServiceAndLabor.TabIndex = 0;
+            txtServiceAndLabor.TextChanged += txtServiceAndLabor_TextChanged;
+            // 
+            // Form1
+            // 
+            ClientSize = new Size(755, 657);
+            Controls.Add(groupBoxOilLube);
+            Controls.Add(groupBoxFlush);
+            Controls.Add(groupBoxMisc);
+            Controls.Add(groupBoxSummary);
+            Name = "Form1";
+            Text = "汽車維修服務";
+            Load += Form1_Load;
+            groupBoxOilLube.ResumeLayout(false);
+            groupBoxFlush.ResumeLayout(false);
+            groupBoxMisc.ResumeLayout(false);
+            groupBoxPartsLabor.ResumeLayout(false);
+            groupBoxPartsLabor.PerformLayout();
+            groupBoxSummary.ResumeLayout(false);
+            groupBoxSummary.PerformLayout();
+            ResumeLayout(false);
+        }
+        #endregion
+    }
+}

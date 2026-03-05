@@ -1,0 +1,17 @@
+C:\Users\m303\Desktop\114_2_C_Sharp\115_03_05\115_03_05\115_03_05\bin\Debug\net8.0-windows\115_03_05.exe
+C:\Users\m303\Desktop\114_2_C_Sharp\115_03_05\115_03_05\115_03_05\bin\Debug\net8.0-windows\115_03_05.deps.json
+C:\Users\m303\Desktop\114_2_C_Sharp\115_03_05\115_03_05\115_03_05\bin\Debug\net8.0-windows\115_03_05.runtimeconfig.json
+C:\Users\m303\Desktop\114_2_C_Sharp\115_03_05\115_03_05\115_03_05\bin\Debug\net8.0-windows\115_03_05.dll
+C:\Users\m303\Desktop\114_2_C_Sharp\115_03_05\115_03_05\115_03_05\bin\Debug\net8.0-windows\115_03_05.pdb
+C:\Users\m303\Desktop\114_2_C_Sharp\115_03_05\115_03_05\115_03_05\obj\Debug\net8.0-windows\_115_03_05.Form1.resources
+C:\Users\m303\Desktop\114_2_C_Sharp\115_03_05\115_03_05\115_03_05\obj\Debug\net8.0-windows\115_03_05.csproj.GenerateResource.cache
+C:\Users\m303\Desktop\114_2_C_Sharp\115_03_05\115_03_05\115_03_05\obj\Debug\net8.0-windows\115_03_05.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\m303\Desktop\114_2_C_Sharp\115_03_05\115_03_05\115_03_05\obj\Debug\net8.0-windows\115_03_05.AssemblyInfoInputs.cache
+C:\Users\m303\Desktop\114_2_C_Sharp\115_03_05\115_03_05\115_03_05\obj\Debug\net8.0-windows\115_03_05.AssemblyInfo.cs
+C:\Users\m303\Desktop\114_2_C_Sharp\115_03_05\115_03_05\115_03_05\obj\Debug\net8.0-windows\115_03_05.csproj.CoreCompileInputs.cache
+C:\Users\m303\Desktop\114_2_C_Sharp\115_03_05\115_03_05\115_03_05\obj\Debug\net8.0-windows\115_03_05.sourcelink.json
+C:\Users\m303\Desktop\114_2_C_Sharp\115_03_05\115_03_05\115_03_05\obj\Debug\net8.0-windows\115_03_05.dll
+C:\Users\m303\Desktop\114_2_C_Sharp\115_03_05\115_03_05\115_03_05\obj\Debug\net8.0-windows\refint\115_03_05.dll
+C:\Users\m303\Desktop\114_2_C_Sharp\115_03_05\115_03_05\115_03_05\obj\Debug\net8.0-windows\115_03_05.pdb
+C:\Users\m303\Desktop\114_2_C_Sharp\115_03_05\115_03_05\115_03_05\obj\Debug\net8.0-windows\115_03_05.genruntimeconfig.cache
+C:\Users\m303\Desktop\114_2_C_Sharp\115_03_05\115_03_05\115_03_05\obj\Debug\net8.0-windows\ref\115_03_05.dll

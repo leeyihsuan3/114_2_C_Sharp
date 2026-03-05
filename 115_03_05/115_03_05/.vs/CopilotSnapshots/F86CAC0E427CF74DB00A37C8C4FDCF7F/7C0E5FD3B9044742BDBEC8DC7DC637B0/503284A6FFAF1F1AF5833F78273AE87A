@@ -1,0 +1,217 @@
+﻿using System.Windows.Forms;
+
+using System.Windows.Forms;
+
+namespace _115_03_05
+{
+    partial class Form1
+    {
+        /// <summary>
+        ///  Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        // Controls
+        private GroupBox groupBoxOilLube;
+        private CheckBox checkBoxOilChange;
+        private CheckBox checkBoxLube;
+        private GroupBox groupBoxFlush;
+        private CheckBox checkBoxRadiatorFlush;
+        private CheckBox checkBoxTransmissionFlush;
+        private GroupBox groupBoxMisc;
+        private CheckBox checkBoxInspection;
+        private CheckBox checkBoxMuffler;
+        private CheckBox checkBoxTireRotate;
+        private GroupBox groupBoxPartsLabor;
+        private Label labelParts;
+        private TextBox textBoxParts;
+        private Label labelHours;
+        private TextBox textBoxHours;
+        private GroupBox groupBoxSummary;
+        private Label labelServiceAndLabor;
+        private TextBox txtServiceAndLabor;
+        private Label labelPartsFee;
+        private TextBox txtPartsFee;
+        private Label labelTax;
+        private TextBox txtTax;
+        private Label labelTotal;
+        private TextBox txtTotal;
+        private Button calculateButton;
+        private Button clearButton;
+        private Button exitButton;
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        ///  Required method for Designer support - do not modify
+        ///  the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.components = new System.ComponentModel.Container();
+
+            // Form
+            this.SuspendLayout();
+            this.ClientSize = new System.Drawing.Size(520, 430);
+            this.Text = "汽車維修服務";
+
+            // groupBoxOilLube
+            this.groupBoxOilLube = new GroupBox();
+            this.groupBoxOilLube.Text = "機油和潤滑";
+            this.groupBoxOilLube.SetBounds(12, 12, 240, 90);
+
+            this.checkBoxOilChange = new CheckBox();
+            this.checkBoxOilChange.Text = "更換機油 (NT$780)";
+            this.checkBoxOilChange.SetBounds(10, 22, 200, 20);
+
+            this.checkBoxLube = new CheckBox();
+            this.checkBoxLube.Text = "潤滑保養 (NT$540)";
+            this.checkBoxLube.SetBounds(10, 48, 200, 20);
+
+            this.groupBoxOilLube.Controls.Add(this.checkBoxOilChange);
+            this.groupBoxOilLube.Controls.Add(this.checkBoxLube);
+            this.Controls.Add(this.groupBoxOilLube);
+
+            // groupBoxFlush
+            this.groupBoxFlush = new GroupBox();
+            this.groupBoxFlush.Text = "清洗服務";
+            this.groupBoxFlush.SetBounds(262, 12, 240, 90);
+
+            this.checkBoxRadiatorFlush = new CheckBox();
+            this.checkBoxRadiatorFlush.Text = "水箱清洗 (NT$900)";
+            this.checkBoxRadiatorFlush.SetBounds(10, 22, 200, 20);
+
+            this.checkBoxTransmissionFlush = new CheckBox();
+            this.checkBoxTransmissionFlush.Text = "變速箱清洗 (NT$2,400)";
+            this.checkBoxTransmissionFlush.SetBounds(10, 48, 200, 20);
+
+            this.groupBoxFlush.Controls.Add(this.checkBoxRadiatorFlush);
+            this.groupBoxFlush.Controls.Add(this.checkBoxTransmissionFlush);
+            this.Controls.Add(this.groupBoxFlush);
+
+            // groupBoxMisc
+            this.groupBoxMisc = new GroupBox();
+            this.groupBoxMisc.Text = "其他服務";
+            this.groupBoxMisc.SetBounds(12, 110, 240, 130);
+
+            this.checkBoxInspection = new CheckBox();
+            this.checkBoxInspection.Text = "檢驗 (NT$450)";
+            this.checkBoxInspection.SetBounds(10, 22, 200, 20);
+
+            this.checkBoxMuffler = new CheckBox();
+            this.checkBoxMuffler.Text = "更換消音器 (NT$3,000)";
+            this.checkBoxMuffler.SetBounds(10, 48, 200, 20);
+
+            this.checkBoxTireRotate = new CheckBox();
+            this.checkBoxTireRotate.Text = "輪胎換位 (NT$600)";
+            this.checkBoxTireRotate.SetBounds(10, 74, 200, 20);
+
+            this.groupBoxMisc.Controls.Add(this.checkBoxInspection);
+            this.groupBoxMisc.Controls.Add(this.checkBoxMuffler);
+            this.groupBoxMisc.Controls.Add(this.checkBoxTireRotate);
+            this.Controls.Add(this.groupBoxMisc);
+            // Form
+            this.SuspendLayout();
+            this.ClientSize = new System.Drawing.Size(520, 430);
+            this.Text = "汽車維修服務";
+
+            // groupBoxOilLube
+            this.groupBoxOilLube = new GroupBox();
+            this.groupBoxOilLube.Text = "機油和潤滑";
+            this.groupBoxOilLube.SetBounds(12, 12, 240, 90);
+
+            this.checkBoxOilChange = new CheckBox();
+            this.checkBoxOilChange.Text = "更換機油 (NT$780)";
+            this.checkBoxOilChange.SetBounds(10, 22, 200, 20);
+
+            this.checkBoxLube = new CheckBox();
+            this.checkBoxLube.Text = "潤滑保養 (NT$540)";
+            this.checkBoxLube.SetBounds(10, 48, 200, 20);
+
+            this.groupBoxOilLube.Controls.Add(this.checkBoxOilChange);
+            this.groupBoxOilLube.Controls.Add(this.checkBoxLube);
+            this.Controls.Add(this.groupBoxOilLube);
+
+            // groupBoxFlush
+            this.groupBoxFlush = new GroupBox();
+            this.groupBoxFlush.Text = "清洗服務";
+            this.groupBoxFlush.SetBounds(262, 12, 240, 90);
+
+            this.checkBoxRadiatorFlush = new CheckBox();
+            this.checkBoxRadiatorFlush.Text = "水箱清洗 (NT$900)";
+            this.checkBoxRadiatorFlush.SetBounds(10, 22, 200, 20);
+
+            this.checkBoxTransmissionFlush = new CheckBox();
+            this.checkBoxTransmissionFlush.Text = "變速箱清洗 (NT$2,400)";
+            this.checkBoxTransmissionFlush.SetBounds(10, 48, 200, 20);
+
+            this.groupBoxFlush.Controls.Add(this.checkBoxRadiatorFlush);
+            this.groupBoxFlush.Controls.Add(this.checkBoxTransmissionFlush);
+            this.Controls.Add(this.groupBoxFlush);
+
+            // groupBoxMisc
+            this.groupBoxMisc = new GroupBox();
+            this.groupBoxMisc.Text = "其他服務";
+            this.groupBoxMisc.SetBounds(12, 110, 240, 130);
+
+            this.checkBoxInspection = new CheckBox();
+            this.checkBoxInspection.Text = "檢驗 (NT$450)";
+            this.checkBoxInspection.SetBounds(10, 22, 200, 20);
+
+            this.checkBoxMuffler = new CheckBox();
+            this.checkBoxMuffler.Text = "更換消音器 (NT$3,000)";
+            this.checkBoxMuffler.SetBounds(10, 48, 200, 20);
+
+            this.checkBoxTireRotate = new CheckBox();
+            this.checkBoxTireRotate.Text = "輪胎換位 (NT$600)";
+            this.checkBoxTireRotate.SetBounds(10, 74, 200, 20);
+
+            this.groupBoxMisc.Controls.Add(this.checkBoxInspection);
+            this.groupBoxMisc.Controls.Add(this.checkBoxMuffler);
+            this.groupBoxMisc.Controls.Add(this.checkBoxTireRotate);
+            this.Controls.Add(this.groupBoxMisc);
+
+            // groupBoxPartsLabor
+            this.groupBoxPartsLabor = new GroupBox();
+            this.groupBoxPartsLabor.Text = "零件和工時";
+            this.groupBoxPartsLabor.SetBounds(262, 110, 240, 130);
+
+            this.labelParts = new Label();
+            this.labelParts.Text = "零件 (NT$)";
+            this.labelParts.SetBounds(10, 26, 100, 20);
+
+            this.textBoxParts = new TextBox();
+            this.textBoxParts.SetBounds(110, 24, 110, 22);
+
+            this.labelHours = new Label();
+            this.labelHours.Text = "工時數 (小時)";
+            this.labelHours.SetBounds(10, 62, 100, 20);
+
+            this.textBoxHours = new TextBox();
+            this.textBoxHours.SetBounds(110, 60, 110, 22);
+
+            this.groupBoxPartsLabor.Controls.Add(this.labelParts);
+            this.groupBoxPartsLabor.Controls.Add(this.textBoxParts);
+            this.groupBoxPartsLabor.Controls.Add(this.labelHours);
+            this.groupBoxPartsLabor.Controls.Add(this.textBoxHours);
+            this.Controls.Add(this.groupBoxPartsLabor);
+
+            // groupBoxSummary
+            this.groupBoxSummary = new GroupBox();
+            this.groupBoxSummary.Text = "費用摘要";
+            this.groupBoxSummary.SetBounds(12, 255, 490, 110);
+
+            this.txtServiceAndLabor = new TextBox();
+            this.txtServiceAndLabor.SetBounds(140, 22, 320, 22);
+        #endregion
+    }
+}

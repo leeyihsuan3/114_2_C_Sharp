@@ -1,0 +1,369 @@
+﻿using System.Drawing;
+using System.Windows.Forms;
+
+namespace _115_03_05
+{
+    partial class Form1
+    {
+        /// <summary>
+        ///  Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        // Controls
+        private GroupBox groupBoxOilLube;
+        private CheckBox checkBoxOilChange;
+        private CheckBox checkBoxLube;
+        private GroupBox groupBoxFlush;
+        private CheckBox checkBoxRadiatorFlush;
+        private CheckBox checkBoxTransmissionFlush;
+        private GroupBox groupBoxMisc;
+        private CheckBox checkBoxInspection;
+        private CheckBox checkBoxMuffler;
+        private CheckBox checkBoxTireRotate;
+        private GroupBox groupBoxPartsLabor;
+        private Label labelParts;
+        private TextBox textBoxParts;
+        private Label labelHours;
+        private TextBox textBoxHours;
+        private GroupBox groupBoxSummary;
+        private Label labelServiceAndLabor;
+        private TextBox txtServiceAndLabor;
+        private Label labelPartsFee;
+        private TextBox txtPartsFee;
+        private Label labelTax;
+        private TextBox txtTax;
+        private Label labelTotal;
+        private TextBox txtTotal;
+        private Button calculateButton;
+        private Button clearButton;
+        private Button exitButton;
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        ///  Required method for Designer support - do not modify
+        ///  the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.groupBoxOilLube = new GroupBox();
+            this.checkBoxOilChange = new CheckBox();
+            this.checkBoxLube = new CheckBox();
+            this.groupBoxFlush = new GroupBox();
+            this.checkBoxRadiatorFlush = new CheckBox();
+            this.checkBoxTransmissionFlush = new CheckBox();
+            this.groupBoxMisc = new GroupBox();
+            this.checkBoxInspection = new CheckBox();
+            this.checkBoxMuffler = new CheckBox();
+            this.checkBoxTireRotate = new CheckBox();
+            this.groupBoxPartsLabor = new GroupBox();
+            this.labelParts = new Label();
+            this.textBoxParts = new TextBox();
+            this.labelHours = new Label();
+            this.textBoxHours = new TextBox();
+            this.groupBoxSummary = new GroupBox();
+            this.labelServiceAndLabor = new Label();
+            this.txtServiceAndLabor = new TextBox();
+            this.labelPartsFee = new Label();
+            this.txtPartsFee = new TextBox();
+            this.labelTax = new Label();
+            this.txtTax = new TextBox();
+            this.labelTotal = new Label();
+            this.txtTotal = new TextBox();
+            this.calculateButton = new Button();
+            this.clearButton = new Button();
+            this.exitButton = new Button();
+            this.groupBoxOilLube.SuspendLayout();
+            this.groupBoxFlush.SuspendLayout();
+            this.groupBoxMisc.SuspendLayout();
+            this.groupBoxPartsLabor.SuspendLayout();
+            this.groupBoxSummary.SuspendLayout();
+            this.SuspendLayout();
+                                        // 
+            // groupBoxOilLube
+            // 
+            this.groupBoxOilLube.Controls.Add(this.checkBoxOilChange);
+            this.groupBoxOilLube.Controls.Add(this.checkBoxLube);
+            this.groupBoxOilLube.Location = new Point(12, 12);
+            this.groupBoxOilLube.Name = "groupBoxOilLube";
+            this.groupBoxOilLube.Size = new Size(240, 120);
+            this.groupBoxOilLube.TabIndex = 0;
+            this.groupBoxOilLube.TabStop = false;
+            this.groupBoxOilLube.Text = "機油和潤滑";
+            // 
+            // checkBoxOilChange
+            // 
+            this.checkBoxOilChange.Location = new Point(10, 25);
+            this.checkBoxOilChange.Name = "checkBoxOilChange";
+            this.checkBoxOilChange.Size = new Size(200, 24);
+            this.checkBoxOilChange.TabIndex = 0;
+            this.checkBoxOilChange.Text = "更換機油 (NT$780)";
+            this.checkBoxOilChange.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxLube
+            // 
+            this.checkBoxLube.Location = new Point(10, 55);
+            this.checkBoxLube.Name = "checkBoxLube";
+            this.checkBoxLube.Size = new Size(200, 24);
+            this.checkBoxLube.TabIndex = 1;
+            this.checkBoxLube.Text = "潤滑保養 (NT$540)";
+            this.checkBoxLube.UseVisualStyleBackColor = true;
+            this.checkBoxLube.CheckedChanged += new System.EventHandler(this.checkBoxLube_CheckedChanged);
+            // 
+            // groupBoxFlush
+            // 
+            this.groupBoxFlush.Controls.Add(this.checkBoxRadiatorFlush);
+            this.groupBoxFlush.Controls.Add(this.checkBoxTransmissionFlush);
+            this.groupBoxFlush.Location = new Point(262, 12);
+            this.groupBoxFlush.Name = "groupBoxFlush";
+            this.groupBoxFlush.Size = new Size(240, 120);
+            this.groupBoxFlush.TabIndex = 1;
+            this.groupBoxFlush.TabStop = false;
+            this.groupBoxFlush.Text = "清洗服務";
+            // 
+            // checkBoxRadiatorFlush
+            // 
+            this.checkBoxRadiatorFlush.Location = new Point(10, 25);
+            this.checkBoxRadiatorFlush.Name = "checkBoxRadiatorFlush";
+            this.checkBoxRadiatorFlush.Size = new Size(200, 24);
+            this.checkBoxRadiatorFlush.TabIndex = 0;
+            this.checkBoxRadiatorFlush.Text = "水箱清洗 (NT$900)";
+            this.checkBoxRadiatorFlush.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxTransmissionFlush
+            // 
+            this.checkBoxTransmissionFlush.Location = new Point(10, 55);
+            this.checkBoxTransmissionFlush.Name = "checkBoxTransmissionFlush";
+            this.checkBoxTransmissionFlush.Size = new Size(200, 24);
+            this.checkBoxTransmissionFlush.TabIndex = 1;
+            this.checkBoxTransmissionFlush.Text = "變速箱清洗 (NT$2,400)";
+            this.checkBoxTransmissionFlush.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxMisc
+            // 
+            this.groupBoxMisc.Controls.Add(this.checkBoxInspection);
+            this.groupBoxMisc.Controls.Add(this.checkBoxMuffler);
+            this.groupBoxMisc.Controls.Add(this.checkBoxTireRotate);
+            this.groupBoxMisc.Location = new Point(12, 142);
+            this.groupBoxMisc.Name = "groupBoxMisc";
+            this.groupBoxMisc.Size = new Size(240, 140);
+            this.groupBoxMisc.TabIndex = 2;
+            this.groupBoxMisc.TabStop = false;
+            this.groupBoxMisc.Text = "其他服務";
+            // 
+            // checkBoxInspection
+            // 
+            this.checkBoxInspection.Location = new Point(10, 25);
+            this.checkBoxInspection.Name = "checkBoxInspection";
+            this.checkBoxInspection.Size = new Size(200, 24);
+            this.checkBoxInspection.TabIndex = 0;
+            this.checkBoxInspection.Text = "檢驗 (NT$450)";
+            this.checkBoxInspection.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxMuffler
+            // 
+            this.checkBoxMuffler.Location = new Point(10, 55);
+            this.checkBoxMuffler.Name = "checkBoxMuffler";
+            this.checkBoxMuffler.Size = new Size(200, 24);
+            this.checkBoxMuffler.TabIndex = 1;
+            this.checkBoxMuffler.Text = "更換消音器 (NT$3,000)";
+            this.checkBoxMuffler.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxTireRotate
+            // 
+            this.checkBoxTireRotate.Location = new Point(10, 85);
+            this.checkBoxTireRotate.Name = "checkBoxTireRotate";
+            this.checkBoxTireRotate.Size = new Size(200, 24);
+            this.checkBoxTireRotate.TabIndex = 2;
+            this.checkBoxTireRotate.Text = "輪胎換位 (NT$600)";
+            this.checkBoxTireRotate.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxPartsLabor
+            // 
+            this.groupBoxPartsLabor.Controls.Add(this.labelParts);
+            this.groupBoxPartsLabor.Controls.Add(this.textBoxParts);
+            this.groupBoxPartsLabor.Controls.Add(this.labelHours);
+            this.groupBoxPartsLabor.Controls.Add(this.textBoxHours);
+            this.groupBoxPartsLabor.Location = new Point(262, 142);
+            this.groupBoxPartsLabor.Name = "groupBoxPartsLabor";
+            this.groupBoxPartsLabor.Size = new Size(240, 140);
+            this.groupBoxPartsLabor.TabIndex = 3;
+            this.groupBoxPartsLabor.TabStop = false;
+            this.groupBoxPartsLabor.Text = "零件和工時";
+            // 
+            // labelParts
+            // 
+            this.labelParts.Location = new Point(10, 28);
+            this.labelParts.Name = "labelParts";
+            this.labelParts.Size = new Size(100, 20);
+            this.labelParts.TabIndex = 0;
+            this.labelParts.Text = "零件 (NT$)";
+            // 
+            // textBoxParts
+            // 
+            this.textBoxParts.Location = new Point(110, 24);
+            this.textBoxParts.Name = "textBoxParts";
+            this.textBoxParts.Size = new Size(110, 23);
+            this.textBoxParts.TabIndex = 1;
+            // 
+            // labelHours
+            // 
+            this.labelHours.Location = new Point(10, 60);
+            this.labelHours.Name = "labelHours";
+            this.labelHours.Size = new Size(100, 20);
+            this.labelHours.TabIndex = 2;
+            this.labelHours.Text = "工時數 (小時)";
+            // 
+            // textBoxHours
+            // 
+            this.textBoxHours.Location = new Point(110, 58);
+            this.textBoxHours.Name = "textBoxHours";
+            this.textBoxHours.Size = new Size(110, 23);
+            this.textBoxHours.TabIndex = 3;
+            // 
+            // groupBoxSummary
+            // 
+            this.groupBoxSummary.Controls.Add(this.labelServiceAndLabor);
+            this.groupBoxSummary.Controls.Add(this.txtServiceAndLabor);
+            this.groupBoxSummary.Controls.Add(this.labelPartsFee);
+            this.groupBoxSummary.Controls.Add(this.txtPartsFee);
+            this.groupBoxSummary.Controls.Add(this.labelTax);
+            this.groupBoxSummary.Controls.Add(this.txtTax);
+            this.groupBoxSummary.Controls.Add(this.labelTotal);
+            this.groupBoxSummary.Controls.Add(this.txtTotal);
+            this.groupBoxSummary.Controls.Add(this.calculateButton);
+            this.groupBoxSummary.Controls.Add(this.clearButton);
+            this.groupBoxSummary.Controls.Add(this.exitButton);
+            this.groupBoxSummary.Location = new Point(12, 292);
+            this.groupBoxSummary.Name = "groupBoxSummary";
+            this.groupBoxSummary.Size = new Size(490, 210);
+            this.groupBoxSummary.TabIndex = 4;
+            this.groupBoxSummary.TabStop = false;
+            this.groupBoxSummary.Text = "費用摘要";
+            // 
+            // labelServiceAndLabor
+            // 
+            this.labelServiceAndLabor.Location = new Point(12, 28);
+            this.labelServiceAndLabor.Name = "labelServiceAndLabor";
+            this.labelServiceAndLabor.Size = new Size(120, 20);
+            this.labelServiceAndLabor.Text = "服務與工資總額";
+            // 
+            // txtServiceAndLabor
+            // 
+            this.txtServiceAndLabor.Location = new Point(140, 24);
+            this.txtServiceAndLabor.Name = "txtServiceAndLabor";
+            this.txtServiceAndLabor.ReadOnly = true;
+            this.txtServiceAndLabor.Size = new Size(320, 23);
+            this.txtServiceAndLabor.TabIndex = 0;
+            this.txtServiceAndLabor.TextChanged += new System.EventHandler(this.txtServiceAndLabor_TextChanged);
+            // 
+            // labelPartsFee
+            // 
+            this.labelPartsFee.Location = new Point(12, 64);
+            this.labelPartsFee.Name = "labelPartsFee";
+            this.labelPartsFee.Size = new Size(120, 20);
+            this.labelPartsFee.Text = "零件費用";
+            // 
+            // txtPartsFee
+            // 
+            this.txtPartsFee.Location = new Point(140, 60);
+            this.txtPartsFee.Name = "txtPartsFee";
+            this.txtPartsFee.ReadOnly = true;
+            this.txtPartsFee.Size = new Size(320, 23);
+            this.txtPartsFee.TabIndex = 1;
+            // 
+            // labelTax
+            // 
+            this.labelTax.Location = new Point(12, 100);
+            this.labelTax.Name = "labelTax";
+            this.labelTax.Size = new Size(120, 20);
+            this.labelTax.Text = "稅金 (6%)";
+            // 
+            // txtTax
+            // 
+            this.txtTax.Location = new Point(140, 96);
+            this.txtTax.Name = "txtTax";
+            this.txtTax.ReadOnly = true;
+            this.txtTax.Size = new Size(320, 23);
+            this.txtTax.TabIndex = 2;
+            // 
+            // labelTotal
+            // 
+            this.labelTotal.Location = new Point(12, 136);
+            this.labelTotal.Name = "labelTotal";
+            this.labelTotal.Size = new Size(120, 20);
+            this.labelTotal.Text = "總費用";
+            // 
+            // txtTotal
+            // 
+            this.txtTotal.Location = new Point(140, 132);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.ReadOnly = true;
+            this.txtTotal.Size = new Size(320, 23);
+            this.txtTotal.TabIndex = 3;
+            // 
+            // calculateButton
+            // 
+            this.calculateButton.Location = new Point(20, 168);
+            this.calculateButton.Name = "calculateButton";
+            this.calculateButton.Size = new Size(120, 30);
+            this.calculateButton.TabIndex = 4;
+            this.calculateButton.Text = "計算";
+            this.calculateButton.UseVisualStyleBackColor = true;
+            this.calculateButton.Click += new System.EventHandler(this.calculateButton_Click);
+            // 
+            // clearButton
+            // 
+            this.clearButton.Location = new Point(160, 168);
+            this.clearButton.Name = "clearButton";
+            this.clearButton.Size = new Size(120, 30);
+            this.clearButton.TabIndex = 5;
+            this.clearButton.Text = "清除";
+            this.clearButton.UseVisualStyleBackColor = true;
+            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
+            // 
+            // exitButton
+            // 
+            this.exitButton.Location = new Point(300, 168);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new Size(120, 30);
+            this.exitButton.TabIndex = 6;
+            this.exitButton.Text = "離開";
+            this.exitButton.UseVisualStyleBackColor = true;
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
+            // 
+            // Form1
+            // 
+            this.ClientSize = new Size(520, 520);
+            this.Controls.Add(this.groupBoxOilLube);
+            this.Controls.Add(this.groupBoxFlush);
+            this.Controls.Add(this.groupBoxMisc);
+            this.Controls.Add(this.groupBoxPartsLabor);
+            this.Controls.Add(this.groupBoxSummary);
+            this.Name = "Form1";
+            this.Text = "汽車維修服務";
+            this.Load += new System.EventHandler(this.Form1_Load);
+            this.FormClosing += new FormClosingEventHandler(this.Form1_FormClosing);
+            this.groupBoxOilLube.ResumeLayout(false);
+            this.groupBoxFlush.ResumeLayout(false);
+            this.groupBoxMisc.ResumeLayout(false);
+            this.groupBoxPartsLabor.ResumeLayout(false);
+            this.groupBoxPartsLabor.PerformLayout();
+            this.groupBoxSummary.ResumeLayout(false);
+            this.groupBoxSummary.PerformLayout();
+            this.ResumeLayout(false);
+        }
+
+        #endregion
+    }
+}
