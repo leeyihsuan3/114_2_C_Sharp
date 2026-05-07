@@ -1,0 +1,358 @@
+﻿using System;
+using System.Drawing;
+using System.Globalization;
+using System.IO;
+using System.Windows.Forms;
+
+namespace 吃角子老虎機遊戲
+{
+    public partial class Form1 : Form
+    {
+        // 遊戲狀態
+        private int balance = 0;
+        private int totalDeposited = 0;
+        private int totalSpins = 0;
+        private int winCount = 0;
+        private int lastPrize = 0;
+        private Random rng = new Random();
+
+        public Form1()
+        {
+            InitializeComponent();
+
+            // 事件綁定
+            this.Load += Form1_Load;
+            this.button_deposit.Click += button_deposit_Click;
+            this.comboBox_bet.SelectedIndexChanged += comboBox_bet_SelectedIndexChanged;
+            this.button1.Click += button1_Click; // 旋轉
+            this.button2.Click += button2_Click; // 離開
+        }
+
+        // Form1_Load：程式啟動時初始化選單、圖片與 UI
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            EnsureImageListFilled();
+
+            if (this.comboBox_bet.Items.Count > 0 && this.comboBox_bet.SelectedIndex < 0)
+            {
+                this.comboBox_bet.SelectedIndex = 0;
+            }
+
+            // 顯示初始三張圖（若 ImageList 有資料則使用索引 0..2）
+            int n1 = 0, n2 = 1, n3 = 2;
+            if (this.imageList1 != null && this.imageList1.Images.Count >= 3)
+            {
+                try
+                {
+                    this.pictureBox1.Image = this.imageList1.Images[n1];
+                    this.pictureBox2.Image = this.imageList1.Images[n2];
+                    this.pictureBox3.Image = this.imageList1.Images[n3];
+                }
+                catch { /* 忽略 */ }
+            }
+
+            UpdateUi();
+            UpdateStats();
+        }
+
+        // 確保 imageList1 有圖（已實作：資源或 Images 資料夾或佔位圖）
+        private void EnsureImageListFilled()
+        {
+            try
+            {
+                if (this.imageList1 == null) return;
+
+                if (this.imageList1.Images.Count >= 10) return;
+
+                string[] names = new string[]
+                {
+                    "Apple","Banana","Cherries","Grapes","Lemon",
+                    "Lime","Orange","Pear","Strawberry","Watermelon"
+                };
+
+                var colors = new Color[]
+                {
+                    Color.Red, Color.Green, Color.Blue, Color.Orange, Color.Purple,
+                    Color.Magenta, Color.Brown, Color.YellowGreen, Color.CadetBlue, Color.Pink
+                };
+
+                for (int i = 0; i < names.Length; i++)
+                {
+                    Image loaded = null;
+                    string name = names[i];
+
+                    try
+                    {
+                        object obj = null;
+                        try
+                        {
+                            obj = Properties.Resources.ResourceManager.GetObject(name);
+                        }
+                        catch { obj = null; }
+
+                        if (obj is Image) loaded = (Image)obj;
+                    }
+                    catch { loaded = null; }
+
+                    if (loaded == null)
+                    {
+                        try
+                        {
+                            string path = Path.Combine(Application.StartupPath, "Images", name + ".bmp");
+                            if (File.Exists(path)) loaded = Image.FromFile(path);
+                        }
+                        catch { loaded = null; }
+                    }
+
+                    if (loaded == null)
+                    {
+                        Bitmap bmp = new Bitmap(this.imageList1.ImageSize.Width, this.imageList1.ImageSize.Height);
+                        using (Graphics g = Graphics.FromImage(bmp))
+                        {
+                            g.Clear(Color.LemonChiffon);
+                            using (Brush b = new SolidBrush(colors[i % colors.Length]))
+                            {
+                                g.FillEllipse(b, 10, 10, bmp.Width - 20, bmp.Height - 20);
+                            }
+                            using (Font f = new Font("Microsoft JhengHei", 18, FontStyle.Bold))
+                            using (Brush tb = Brushes.White)
+                            {
+                                string label = (i + 1).ToString();
+                                SizeF sz = g.MeasureString(label, f);
+                                g.DrawString(label, f, tb, (bmp.Width - sz.Width) / 2f, (bmp.Height - sz.Height) / 2f);
+                            }
+                        }
+                        this.imageList1.Images.Add(bmp);
+                    }
+                    else
+                    {
+                        Image thumb = new Bitmap(this.imageList1.ImageSize.Width, this.imageList1.ImageSize.Height);
+                        using (Graphics g = Graphics.FromImage(thumb))
+                        {
+                            g.Clear(Color.LemonChiffon);
+                            g.DrawImage(loaded, 0, 0, thumb.Width, thumb.Height);
+                        }
+                        this.imageList1.Images.Add(thumb);
+                        if (loaded is Bitmap && !ReferenceEquals(loaded, thumb))
+                        {
+                            try { loaded.Dispose(); } catch { }
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                // 降級處理：忽略
+            }
+        }
+
+        // 存入按鈕
+        private void button_deposit_Click(object sender, EventArgs e)
+        {
+            string txt = this.textBox_deposit.Text.Trim();
+            int amount;
+            if (!int.TryParse(txt, out amount) || amount <= 0)
+            {
+                MessageBox.Show("請輸入有效的存入金額（必須為正整數）", "輸入錯誤", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            balance += amount;
+            totalDeposited += amount;
+            this.textBox_deposit.Text = string.Empty;
+
+            UpdateUi();
+        }
+
+        // ComboBox 選項改變
+        private void comboBox_bet_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateUi();
+        }
+
+        // 旋轉按鈕（主流程：取得下注、扣款、擲三輪、判定與更新）
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int bet = GetBetAmount();
+            if (bet <= 0) return;
+
+            if (balance < bet)
+            {
+                MessageBox.Show("餘額不足於本次下注。", "餘額不足", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                UpdateUi();
+                return;
+            }
+
+            // 扣款
+            balance -= bet;
+
+            // 取得三個隨機索引並更新 PictureBox
+            int n1, n2, n3;
+            getImage(out n1, out n2, out n3);
+
+            // 判斷勝負（會更新 lastPrize、balance、winCount、totalSpins）
+            int prize = checkWinner(bet, n1, n2, n3);
+
+            // 更新介面
+            UpdateUi();
+            UpdateStats();
+        }
+
+        // 離開按鈕：結算並關閉視窗
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int netGain = balance - totalDeposited;
+            string FormatCurrency(int v) => v.ToString("c", CultureInfo.CurrentCulture);
+
+            string profitLabel = netGain >= 0 ? "淨利" : "虧損";
+            string profitValue = netGain >= 0 ? FormatCurrency(netGain) : FormatCurrency(Math.Abs(netGain));
+
+            string message =
+                "累計存入： " + FormatCurrency(totalDeposited) + Environment.NewLine +
+                "目前餘額： " + FormatCurrency(balance) + Environment.NewLine +
+                profitLabel + "： " + profitValue + Environment.NewLine + Environment.NewLine +
+                "旋轉次數： " + totalSpins + " 次" + Environment.NewLine +
+                "中獎次數： " + winCount + " 次";
+
+            MessageBox.Show(message, "結算結果", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            this.Close();
+        }
+
+        // 取得 ComboBox 選擇的下注金額（對應範例名稱：GetBetAmount）
+        private int GetBetAmount()
+        {
+            if (this.comboBox_bet == null || this.comboBox_bet.SelectedItem == null) return 0;
+            string s = this.comboBox_bet.SelectedItem.ToString().Trim();
+            if (s.StartsWith("$")) s = s.Substring(1);
+            int v;
+            if (!int.TryParse(s, out v)) return 0;
+            return v;
+        }
+
+        // 別名符合你的規格（若其他地方呼叫 getBetAmount 用此方法）
+        private int getBetAmount() => GetBetAmount();
+
+        // 取得三個隨機圖索引並更新 PictureBox（符合規格的 getImage()）
+        private void getImage(out int n1, out int n2, out int n3)
+        {
+            n1 = n2 = n3 = 0;
+            if (this.imageList1 == null || this.imageList1.Images.Count == 0) return;
+
+            int maxIndex = Math.Max(0, this.imageList1.Images.Count - 1);
+            n1 = rng.Next(0, maxIndex + 1);
+            n2 = rng.Next(0, maxIndex + 1);
+            n3 = rng.Next(0, maxIndex + 1);
+
+            try
+            {
+                if (this.imageList1.Images.Count > n1) this.pictureBox1.Image = this.imageList1.Images[n1];
+                if (this.imageList1.Images.Count > n2) this.pictureBox2.Image = this.imageList1.Images[n2];
+                if (this.imageList1.Images.Count > n3) this.pictureBox3.Image = this.imageList1.Images[n3];
+            }
+            catch
+            {
+                // 忽略顯示錯誤
+            }
+        }
+
+        // 判斷獎金與更新狀態（符合規格的 checkWinner(bet)）
+        private int checkWinner(int bet, int n1, int n2, int n3)
+        {
+            int prize = 0;
+            if (n1 == n2 && n2 == n3)
+            {
+                prize = bet * 10; // 頭獎
+            }
+            else if (n1 == n2 || n1 == n3 || n2 == n3)
+            {
+                prize = bet * 2; // 普獎
+            }
+            else
+            {
+                prize = 0; // 未中
+            }
+
+            lastPrize = prize;
+            if (prize > 0)
+            {
+                balance += prize;
+                winCount++;
+            }
+
+            totalSpins++;
+
+            return prize;
+        }
+
+        // UpdateUi(): 更新餘額、本次獲得、按鈕狀態
+        private void UpdateUi()
+        {
+            this.label_balance.Text = "餘額： " + balance.ToString("c", CultureInfo.CurrentCulture);
+            this.label_lastWin.Text = "本次獲得： " + lastPrize.ToString("c", CultureInfo.CurrentCulture);
+
+            int bet = GetBetAmount();
+            bool canSpin = (balance > 0 && bet > 0 && balance >= bet);
+            this.button1.Enabled = canSpin;
+            if (bet == 0) this.button1.Enabled = false;
+        }
+
+        // UpdateStats(): 每次旋轉後更新統計
+        private void UpdateStats()
+        {
+            this.label_totalSpins.Text = string.Format("旋轉：{0} 次", totalSpins);
+            this.label_winCount.Text = string.Format("中獎：{0} 次", winCount);
+
+            double winRate = 0.0;
+            if (totalSpins > 0) winRate = (double)winCount / totalSpins * 100.0;
+            this.label_winRate.Text = string.Format("勝率：{0:0.0}%", winRate);
+        }
+
+        // 空的點擊處理器（保留以免 Designer 綁定找不到）
+        private void lblDeposit_Click(object sender, EventArgs e) { }
+        private void label_totalSpins_Click(object sender, EventArgs e) { }
+        private void label_lastWin_Click(object sender, EventArgs e) { }
+        private void label_balance_Click(object sender, EventArgs e) { }
+        // 將下列片段貼到 Form1_Load 或 EnsureImageListFilled()（在確定已在 Resources 加入圖片後使用）
+        private void LoadResourcesToImageList()
+        {
+            if (this.imageList1 == null) return;
+            this.imageList1.Images.Clear();
+
+            string[] names = new string[]
+            {
+                "Apple","Banana","Cherries","Grapes","Lemon",
+                "Lime","Orange","Pear","Strawberry","Watermelon"
+            };
+
+            foreach (var name in names)
+            {
+                try
+                {
+                    object obj = null;
+                    try
+                    {
+                        obj = Properties.Resources.ResourceManager.GetObject(name);
+                    }
+                    catch { obj = null; }
+
+                    if (obj is Image img)
+                    {
+                        // 建立縮圖以符合 ImageList 大小
+                        Image thumb = new Bitmap(this.imageList1.ImageSize.Width, this.imageList1.ImageSize.Height);
+                        using (Graphics g = Graphics.FromImage(thumb))
+                        {
+                            g.Clear(Color.LemonChiffon);
+                            g.DrawImage(img, 0, 0, thumb.Width, thumb.Height);
+                        }
+                        this.imageList1.Images.Add(thumb);
+                    }
+                }
+                catch
+                {
+                    // 若擷取或轉換失敗則忽略，保留其他圖
+                }
+            }
+        }
+    }
+}
