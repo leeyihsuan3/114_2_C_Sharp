@@ -1,0 +1,171 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
+using System.Windows.Forms;
+
+namespace 期末考第二題
+{
+    public class Form1 : Form
+    {
+        public List<Employee> employees = new List<Employee>();
+        string filePath = "employees.txt";
+
+        
+
+        public Form1()
+        {
+            BuildUI();
+            LoadEmployees();
+            UpdateListBox();
+        }
+
+        private void BuildUI()
+        {
+            Text = "員工資料管理系統";
+            Size = new Size(650, 450);
+            StartPosition = FormStartPosition.CenterScreen;
+
+            Label title = new Label();
+            title.Text = "員工資料管理";
+            title.Font = new Font("新細明體", 24, FontStyle.Bold);
+            title.Location = new Point(30, 25);
+            title.Size = new Size(300, 50);
+            Controls.Add(title);
+
+            Button btnAdd = new Button();
+            btnAdd.Text = "新增員工";
+            btnAdd.Location = new Point(30, 100);
+            btnAdd.Size = new Size(120, 45);
+            btnAdd.Click += BtnAdd_Click;
+            Controls.Add(btnAdd);
+
+            Button btnDelete = new Button();
+            btnDelete.Text = "刪除員工";
+            btnDelete.Location = new Point(30, 160);
+            btnDelete.Size = new Size(120, 45);
+            btnDelete.Click += BtnDelete_Click;
+            Controls.Add(btnDelete);
+
+            Button btnEdit = new Button();
+            btnEdit.Text = "修改員工";
+            btnEdit.Location = new Point(30, 220);
+            btnEdit.Size = new Size(120, 45);
+            btnEdit.Click += BtnEdit_Click;
+            Controls.Add(btnEdit);
+
+            Button btnSearch = new Button();
+            btnSearch.Text = "查詢員工";
+            btnSearch.Location = new Point(30, 280);
+            btnSearch.Size = new Size(120, 45);
+            btnSearch.Click += BtnSearch_Click;
+            Controls.Add(btnSearch);
+
+            Button btnExit = new Button();
+            btnExit.Text = "離開";
+            btnExit.Location = new Point(30, 340);
+            btnExit.Size = new Size(120, 45);
+            btnExit.Click += BtnExit_Click;
+            Controls.Add(btnExit);
+
+            Label lblList = new Label();
+            lblList.Text = "員工編號與姓名：";
+            lblList.Location = new Point(220, 80);
+            lblList.Size = new Size(180, 25);
+            Controls.Add(lblList);
+
+            employeeListBox = new ListBox();
+            employeeListBox.Location = new Point(220, 110);
+            employeeListBox.Size = new Size(350, 260);
+            Controls.Add(employeeListBox);
+        }
+
+        private void LoadEmployees()
+        {
+            if (!File.Exists(filePath))
+            {
+                employees.Add(new Employee("Alice Chen", 1001, "Sales", "Manager"));
+                employees.Add(new Employee("Bob Lin", 1002, "IT", "Engineer"));
+                employees.Add(new Employee("Carol Wang", 1003, "HR", "Specialist"));
+                SaveEmployees();
+                return;
+            }
+
+            string[] lines = File.ReadAllLines(filePath);
+
+            foreach (string line in lines)
+            {
+                string[] data = line.Split('|');
+
+                if (data.Length == 4)
+                {
+                    int id;
+                    if (int.TryParse(data[0], out id))
+                    {
+                        employees.Add(new Employee(data[1], id, data[2], data[3]));
+                    }
+                }
+            }
+        }
+
+        public void SaveEmployees()
+        {
+            List<string> lines = new List<string>();
+
+            foreach (Employee emp in employees)
+            {
+                lines.Add(emp.IdNumber + "|" + emp.Name + "|" + emp.Department + "|" + emp.Position);
+            }
+
+            File.WriteAllLines(filePath, lines);
+        }
+
+        public void UpdateListBox()
+        {
+            employeeListBox.Items.Clear();
+
+            foreach (Employee emp in employees)
+            {
+                employeeListBox.Items.Add(emp.IdNumber + " " + emp.Name);
+            }
+        }
+
+        private void BtnAdd_Click(object sender, EventArgs e)
+        {
+            AddForm form = new AddForm(employees);
+            form.ShowDialog();
+            SaveEmployees();
+            UpdateListBox();
+        }
+
+        private void BtnDelete_Click(object sender, EventArgs e)
+        {
+            DeleteForm form = new DeleteForm(employees);
+            form.ShowDialog();
+            SaveEmployees();
+            UpdateListBox();
+        }
+
+        private void BtnEdit_Click(object sender, EventArgs e)
+        {
+            EditForm form = new EditForm(employees);
+            form.ShowDialog();
+            SaveEmployees();
+            UpdateListBox();
+        }
+
+        private void BtnSearch_Click(object sender, EventArgs e)
+        {
+            SearchForm form = new SearchForm(employees);
+            form.ShowDialog();
+        }
+
+        private void BtnExit_Click(object sender, EventArgs e)
+        {
+            SaveEmployees();
+            Close();
+        }
+
+        
+    }
+}

@@ -1,0 +1,113 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\m303\\Desktop\\114_2_C_Sharp\\\u671F\u672B\u8003\u7B2C\u4E00\u984C\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3EA9AC6A-8D72-4831-8F78-04CE2D7AB83B}|\u671F\u672B\u8003\u7B2C\u4E00\u984C\\\u671F\u672B\u8003\u7B2C\u4E00\u984C.csproj|c:\\users\\m303\\desktop\\114_2_c_sharp\\\u671F\u672B\u8003\u7B2C\u4E00\u984C\\\u671F\u672B\u8003\u7B2C\u4E00\u984C\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3EA9AC6A-8D72-4831-8F78-04CE2D7AB83B}|\u671F\u672B\u8003\u7B2C\u4E00\u984C\\\u671F\u672B\u8003\u7B2C\u4E00\u984C.csproj|solutionrelative:\u671F\u672B\u8003\u7B2C\u4E00\u984C\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3EA9AC6A-8D72-4831-8F78-04CE2D7AB83B}|\u671F\u672B\u8003\u7B2C\u4E00\u984C\\\u671F\u672B\u8003\u7B2C\u4E00\u984C.csproj|c:\\users\\m303\\desktop\\114_2_c_sharp\\\u671F\u672B\u8003\u7B2C\u4E00\u984C\\\u671F\u672B\u8003\u7B2C\u4E00\u984C\\morse_code_table.md||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3EA9AC6A-8D72-4831-8F78-04CE2D7AB83B}|\u671F\u672B\u8003\u7B2C\u4E00\u984C\\\u671F\u672B\u8003\u7B2C\u4E00\u984C.csproj|solutionrelative:\u671F\u672B\u8003\u7B2C\u4E00\u984C\\morse_code_table.md||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3EA9AC6A-8D72-4831-8F78-04CE2D7AB83B}|\u671F\u672B\u8003\u7B2C\u4E00\u984C\\\u671F\u672B\u8003\u7B2C\u4E00\u984C.csproj|c:\\users\\m303\\desktop\\114_2_c_sharp\\\u671F\u672B\u8003\u7B2C\u4E00\u984C\\\u671F\u672B\u8003\u7B2C\u4E00\u984C\\morse_code_table.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{3EA9AC6A-8D72-4831-8F78-04CE2D7AB83B}|\u671F\u672B\u8003\u7B2C\u4E00\u984C\\\u671F\u672B\u8003\u7B2C\u4E00\u984C.csproj|solutionrelative:\u671F\u672B\u8003\u7B2C\u4E00\u984C\\morse_code_table.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3EA9AC6A-8D72-4831-8F78-04CE2D7AB83B}|\u671F\u672B\u8003\u7B2C\u4E00\u984C\\\u671F\u672B\u8003\u7B2C\u4E00\u984C.csproj|c:\\users\\m303\\desktop\\114_2_c_sharp\\\u671F\u672B\u8003\u7B2C\u4E00\u984C\\\u671F\u672B\u8003\u7B2C\u4E00\u984C\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3EA9AC6A-8D72-4831-8F78-04CE2D7AB83B}|\u671F\u672B\u8003\u7B2C\u4E00\u984C\\\u671F\u672B\u8003\u7B2C\u4E00\u984C.csproj|solutionrelative:\u671F\u672B\u8003\u7B2C\u4E00\u984C\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3EA9AC6A-8D72-4831-8F78-04CE2D7AB83B}|\u671F\u672B\u8003\u7B2C\u4E00\u984C\\\u671F\u672B\u8003\u7B2C\u4E00\u984C.csproj|c:\\users\\m303\\desktop\\114_2_c_sharp\\\u671F\u672B\u8003\u7B2C\u4E00\u984C\\\u671F\u672B\u8003\u7B2C\u4E00\u984C\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{3EA9AC6A-8D72-4831-8F78-04CE2D7AB83B}|\u671F\u672B\u8003\u7B2C\u4E00\u984C\\\u671F\u672B\u8003\u7B2C\u4E00\u984C.csproj|solutionrelative:\u671F\u672B\u8003\u7B2C\u4E00\u984C\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\m303\\Desktop\\114_2_C_Sharp\\\u671F\u672B\u8003\u7B2C\u4E00\u984C\\\u671F\u672B\u8003\u7B2C\u4E00\u984C\\Form1.cs",
+              "RelativeDocumentMoniker": "\u671F\u672B\u8003\u7B2C\u4E00\u984C\\Form1.cs",
+              "ToolTip": "C:\\Users\\m303\\Desktop\\114_2_C_Sharp\\\u671F\u672B\u8003\u7B2C\u4E00\u984C\\\u671F\u672B\u8003\u7B2C\u4E00\u984C\\Form1.cs",
+              "RelativeToolTip": "\u671F\u672B\u8003\u7B2C\u4E00\u984C\\Form1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-11T05:33:03.841Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{56df62a4-05a3-4e5b-aa1a-99371ccfb997}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Form1.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\m303\\Desktop\\114_2_C_Sharp\\\u671F\u672B\u8003\u7B2C\u4E00\u984C\\\u671F\u672B\u8003\u7B2C\u4E00\u984C\\Form1.Designer.cs",
+              "RelativeDocumentMoniker": "\u671F\u672B\u8003\u7B2C\u4E00\u984C\\Form1.Designer.cs",
+              "ToolTip": "C:\\Users\\m303\\Desktop\\114_2_C_Sharp\\\u671F\u672B\u8003\u7B2C\u4E00\u984C\\\u671F\u672B\u8003\u7B2C\u4E00\u984C\\Form1.Designer.cs",
+              "RelativeToolTip": "\u671F\u672B\u8003\u7B2C\u4E00\u984C\\Form1.Designer.cs",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAiwHYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-11T05:46:38.289Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "morse_code_table.md",
+              "DocumentMoniker": "C:\\Users\\m303\\Desktop\\114_2_C_Sharp\\\u671F\u672B\u8003\u7B2C\u4E00\u984C\\\u671F\u672B\u8003\u7B2C\u4E00\u984C\\morse_code_table.md",
+              "RelativeDocumentMoniker": "\u671F\u672B\u8003\u7B2C\u4E00\u984C\\morse_code_table.md",
+              "ToolTip": "C:\\Users\\m303\\Desktop\\114_2_C_Sharp\\\u671F\u672B\u8003\u7B2C\u4E00\u984C\\\u671F\u672B\u8003\u7B2C\u4E00\u984C\\morse_code_table.md",
+              "RelativeToolTip": "\u671F\u672B\u8003\u7B2C\u4E00\u984C\\morse_code_table.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2026-06-11T05:38:19.654Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "morse_code_table.md",
+              "DocumentMoniker": "C:\\Users\\m303\\Desktop\\114_2_C_Sharp\\\u671F\u672B\u8003\u7B2C\u4E00\u984C\\\u671F\u672B\u8003\u7B2C\u4E00\u984C\\morse_code_table.md",
+              "RelativeDocumentMoniker": "\u671F\u672B\u8003\u7B2C\u4E00\u984C\\morse_code_table.md",
+              "ToolTip": "C:\\Users\\m303\\Desktop\\114_2_C_Sharp\\\u671F\u672B\u8003\u7B2C\u4E00\u984C\\\u671F\u672B\u8003\u7B2C\u4E00\u984C\\morse_code_table.md",
+              "RelativeToolTip": "\u671F\u672B\u8003\u7B2C\u4E00\u984C\\morse_code_table.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAIwAsAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2026-06-11T06:10:32.822Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Form1.cs [\u8A2D\u8A08]",
+              "DocumentMoniker": "C:\\Users\\m303\\Desktop\\114_2_C_Sharp\\\u671F\u672B\u8003\u7B2C\u4E00\u984C\\\u671F\u672B\u8003\u7B2C\u4E00\u984C\\Form1.cs",
+              "RelativeDocumentMoniker": "\u671F\u672B\u8003\u7B2C\u4E00\u984C\\Form1.cs",
+              "ToolTip": "C:\\Users\\m303\\Desktop\\114_2_C_Sharp\\\u671F\u672B\u8003\u7B2C\u4E00\u984C\\\u671F\u672B\u8003\u7B2C\u4E00\u984C\\Form1.cs [\u8A2D\u8A08]",
+              "RelativeToolTip": "\u671F\u672B\u8003\u7B2C\u4E00\u984C\\Form1.cs [\u8A2D\u8A08]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-11T05:30:02.113Z",
+              "EditorCaption": " [\u8A2D\u8A08]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

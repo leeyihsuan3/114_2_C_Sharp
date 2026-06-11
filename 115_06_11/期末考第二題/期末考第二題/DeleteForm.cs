@@ -1,0 +1,102 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
+using System.Windows.Forms;
+
+namespace 期末考第二題
+{
+    public class DeleteForm : Form
+    {
+        List<Employee> employees;
+        TextBox txtId;
+        RichTextBox resultBox;
+
+        private Button btnDelete;
+        private Button btnClose;
+
+        public DeleteForm(List<Employee> employees)
+        {
+            this.employees = employees;
+            BuildUI();
+            ShowEmployees();
+        }
+
+        private void BuildUI()
+        {
+            Text = "刪除員工";
+            Size = new Size(600, 450);
+            StartPosition = FormStartPosition.CenterParent;
+
+            Label title = new Label();
+            title.Text = "刪除員工";
+            title.Font = new Font("新細明體", 24, FontStyle.Bold);
+            title.Location = new Point(40, 30);
+            title.Size = new Size(250, 50);
+            Controls.Add(title);
+
+            Label lblId = new Label();
+            lblId.Text = "員工編號：";
+            lblId.Location = new Point(60, 110);
+            lblId.Size = new Size(100, 30);
+            Controls.Add(lblId);
+
+            txtId = new TextBox();
+            txtId.Location = new Point(180, 110);
+            txtId.Size = new Size(300, 30);
+            Controls.Add(txtId);
+
+            Button btnDelete = new Button();
+            btnDelete.Text = "刪除";
+            btnDelete.Location = new Point(180, 170);
+            btnDelete.Size = new Size(100, 40);
+            btnDelete.Click += BtnDelete_Click;
+            Controls.Add(btnDelete);
+
+            Button btnClose = new Button();
+            btnClose.Text = "離開";
+            btnClose.Location = new Point(320, 170);
+            btnClose.Size = new Size(100, 40);
+            btnClose.Click += (s, e) => Close();
+            Controls.Add(btnClose);
+
+            resultBox = new RichTextBox();
+            resultBox.Location = new Point(60, 240);
+            resultBox.Size = new Size(460, 130);
+            Controls.Add(resultBox);
+        }
+
+        private void ShowEmployees()
+        {
+            resultBox.Clear();
+
+            foreach (Employee emp in employees)
+            {
+                resultBox.AppendText(emp.IdNumber + " | " + emp.Name + " | " + emp.Department + " | " + emp.Position + "\n");
+            }
+        }
+
+        private void BtnDelete_Click(object sender, EventArgs e)
+        {
+            int id;
+
+            if (!int.TryParse(txtId.Text.Trim(), out id))
+            {
+                MessageBox.Show("請輸入有效的員工編號");
+                return;
+            }
+
+            Employee emp = employees.FirstOrDefault(x => x.IdNumber == id);
+
+            if (emp == null)
+            {
+                MessageBox.Show("找不到員工");
+                return;
+            }
+
+            employees.Remove(emp);
+            MessageBox.Show("刪除成功");
+            ShowEmployees();
+        }
+    }
+}

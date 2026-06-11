@@ -1,0 +1,11 @@
+C:\Users\m303\Desktop\114_2_C_Sharp\期末考第一題\期末考第一題\obj\Debug\期末考第一題.csproj.AssemblyReference.cache
+C:\Users\m303\Desktop\114_2_C_Sharp\期末考第一題\期末考第一題\obj\Debug\期末考第一題.Properties.Resources.resources
+C:\Users\m303\Desktop\114_2_C_Sharp\期末考第一題\期末考第一題\obj\Debug\期末考第一題.csproj.GenerateResource.cache
+C:\Users\m303\Desktop\114_2_C_Sharp\期末考第一題\期末考第一題\obj\Debug\期末考第一題.csproj.CoreCompileInputs.cache
+C:\Users\m303\Desktop\114_2_C_Sharp\期末考第一題\期末考第一題\bin\Debug\期末考第一題.exe.config
+C:\Users\m303\Desktop\114_2_C_Sharp\期末考第一題\期末考第一題\bin\Debug\期末考第一題.exe
+C:\Users\m303\Desktop\114_2_C_Sharp\期末考第一題\期末考第一題\bin\Debug\期末考第一題.pdb
+C:\Users\m303\Desktop\114_2_C_Sharp\期末考第一題\期末考第一題\obj\Debug\期末考第一題.Form1.resources
+C:\Users\m303\Desktop\114_2_C_Sharp\期末考第一題\期末考第一題\obj\Debug\期末考第一題.exe
+C:\Users\m303\Desktop\114_2_C_Sharp\期末考第一題\期末考第一題\obj\Debug\期末考第一題.pdb
+C:\Users\m303\Desktop\114_2_C_Sharp\期末考第一題\期末考第一題\obj\Debug\期末考第一題.exe.config

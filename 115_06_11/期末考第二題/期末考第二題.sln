@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36915.13 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "期末考第二題", "期末考第二題\期末考第二題.csproj", "{53A30E70-3F2A-461E-A159-8E157C1ADC68}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{53A30E70-3F2A-461E-A159-8E157C1ADC68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53A30E70-3F2A-461E-A159-8E157C1ADC68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53A30E70-3F2A-461E-A159-8E157C1ADC68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53A30E70-3F2A-461E-A159-8E157C1ADC68}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {082C6A94-3C66-4635-9724-484B44647902}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,5 @@
+1001|Alice Chen|Sales|Manager
+1002|Bob Lin|IT|Engineer
+1003|Carol Wang|HR|Specialist
+1004|11|11|11
+101|11|GJDX|DJC

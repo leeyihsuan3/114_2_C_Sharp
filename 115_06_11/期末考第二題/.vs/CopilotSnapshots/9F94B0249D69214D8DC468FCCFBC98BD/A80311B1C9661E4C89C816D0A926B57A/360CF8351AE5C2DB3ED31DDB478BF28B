@@ -1,0 +1,393 @@
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Windows.Forms;
+
+namespace 期末考第二題
+{
+    public partial class MainForm : Form
+    {
+        private List<Employee> employees = new List<Employee>();
+        private string filePath = "員工資料管理系統/employees.txt";
+
+        public MainForm()
+        {
+            InitializeComponent();
+            LoadEmployees();
+            UpdateListBox();
+        }
+
+        private void LoadEmployees()
+        {
+            try
+            {
+                if (!File.Exists(filePath)) return;
+
+                string[] lines = File.ReadAllLines(filePath);
+                employees.Clear();
+
+                foreach (string line in lines)
+                {
+                    string[] data = line.Split('|');
+
+                    if (data.Length == 4 && int.TryParse(data[0], out int id))
+                    {
+                        employees.Add(new Employee(
+                            data[1],
+                            id,
+                            data[2],
+                            data[3]
+                        ));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"讀取檔案失敗：{ex.Message}", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void SaveEmployees()
+        {
+            try
+            {
+                var dir = Path.GetDirectoryName(filePath);
+                if (!string.IsNullOrEmpty(dir) && !Directory.Exists(dir))
+                {
+                    Directory.CreateDirectory(dir);
+                }
+
+                List<string> lines = employees.Select(emp => $"{emp.IdNumber}|{emp.Name}|{emp.Department}|{emp.Position}").ToList();
+                File.WriteAllLines(filePath, lines);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"儲存失敗：{ex.Message}", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void UpdateListBox()
+        {
+            employeeListBox.Items.Clear();
+            foreach (Employee emp in employees)
+            {
+                employeeListBox.Items.Add(emp.IdNumber + " " + emp.Name);
+            }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            var form = new AddForm(employees);
+            form.ShowDialog();
+            SaveEmployees();
+            UpdateListBox();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            var form = new DeleteForm(employees);
+            form.ShowDialog();
+            SaveEmployees();
+            UpdateListBox();
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            var form = new EditForm(employees);
+            form.ShowDialog();
+            SaveEmployees();
+            UpdateListBox();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            var form = new SearchForm(employees);
+            form.ShowDialog();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            SaveEmployees();
+            this.Close();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+    }
+
+    public class Employee
+    {
+        public string Name { get; set; }
+        public int IdNumber { get; set; }
+        public string Department { get; set; }
+        public string Position { get; set; }
+
+        public Employee()
+        {
+            Name = "";
+            IdNumber = 0;
+            Department = "";
+            Position = "";
+        }
+
+        public Employee(string name, int idNumber)
+        {
+            Name = name;
+            IdNumber = idNumber;
+            Department = "";
+            Position = "";
+        }
+
+        public Employee(string name, int idNumber, string department, string position)
+        {
+            Name = name;
+            IdNumber = idNumber;
+            Department = department;
+            Position = position;
+        }
+
+        public override string ToString()
+        {
+            return IdNumber + " " + Name;
+        }
+    }
+
+    public class AddForm : Form
+    {
+        private List<Employee> employees;
+
+        public AddForm(List<Employee> employees)
+        {
+            this.employees = employees;
+            InitializeComponent();
+
+            // 事件綁定（designer 未綁）
+            this.btnAdd.Click += BtnAdd_Click;
+            this.btnClose.Click += (s, e) => this.Close();
+
+            // 範例說明
+            this.richTextBox1.Text = "請輸入員工資料，按「新增」加入。";
+        }
+
+        private void BtnAdd_Click(object sender, EventArgs e)
+        {
+            string sId = txtId.Text.Trim();
+            string name = txtName.Text.Trim();
+
+            if (string.IsNullOrWhiteSpace(sId) || string.IsNullOrWhiteSpace(name))
+            {
+                MessageBox.Show("請輸入員工編號與姓名。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!int.TryParse(sId, out int id))
+            {
+                MessageBox.Show("員工編號必須為整數。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (employees.Any(x => x.IdNumber == id))
+            {
+                MessageBox.Show("此員工編號已存在。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            employees.Add(new Employee(name, id, txtDepartment.Text.Trim(), txtPosition.Text.Trim()));
+            this.Close();
+        }
+    }
+
+    public class DeleteForm : Form
+    {
+        private List<Employee> employees;
+
+        public DeleteForm(List<Employee> employees)
+        {
+            this.employees = employees;
+            InitializeComponent();
+
+            this.btnDelete.Click += BtnDelete_Click;
+            this.btnClose.Click += (s, e) => this.Close();
+
+            RefreshInfo();
+        }
+
+        private void RefreshInfo()
+        {
+            richTextBox1.Clear();
+            if (employees.Count == 0)
+            {
+                richTextBox1.Text = "目前沒有員工資料。";
+            }
+            else
+            {
+                richTextBox1.Lines = employees.Select(e => $"{e.IdNumber} | {e.Name} | {e.Department} | {e.Position}").ToArray();
+            }
+        }
+
+        private void BtnDelete_Click(object sender, EventArgs e)
+        {
+            if (!int.TryParse(txtId.Text.Trim(), out int id))
+            {
+                MessageBox.Show("請輸入有效的員工編號。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var emp = employees.FirstOrDefault(x => x.IdNumber == id);
+            if (emp == null)
+            {
+                MessageBox.Show("找不到該員工。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            var dlg = MessageBox.Show($"確認刪除：{emp.IdNumber} {emp.Name}？", "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dlg == DialogResult.Yes)
+            {
+                employees.Remove(emp);
+                MessageBox.Show("已刪除。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                RefreshInfo();
+            }
+        }
+    }
+
+    public class SearchForm : Form
+    {
+        private List<Employee> employees;
+        private TextBox txtQuery;
+        private Button btnSearch;
+        private ListBox resultBox;
+        private ComboBox cboMode;
+        private Button btnClose;
+
+        public SearchForm(List<Employee> employees)
+        {
+            this.employees = employees;
+            InitializeComponent();
+        }
+
+        private void InitializeComponent()
+        {
+            this.Text = "查詢員工";
+            this.StartPosition = FormStartPosition.CenterParent;
+            this.Width = 500;
+            this.Height = 380;
+
+            var lblMode = new Label() { Left = 10, Top = 15, Text = "查詢模式", Width = 80 };
+            cboMode = new ComboBox() { Left = 100, Top = 12, Width = 120 };
+            cboMode.Items.AddRange(new string[] { "姓名(包含)", "員工編號(精確)" });
+            cboMode.SelectedIndex = 0;
+
+            txtQuery = new TextBox() { Left = 230, Top = 12, Width = 150 };
+            btnSearch = new Button() { Left = 390, Top = 10, Width = 70, Text = "查詢" };
+            btnSearch.Click += BtnSearch_Click;
+
+            resultBox = new ListBox() { Left = 10, Top = 50, Width = 450, Height = 260 };
+            btnClose = new Button() { Left = 200, Top = 320, Width = 80, Text = "關閉" };
+            btnClose.Click += (s, e) => this.Close();
+
+            this.Controls.AddRange(new Control[] { lblMode, cboMode, txtQuery, btnSearch, resultBox, btnClose });
+        }
+
+        private void BtnSearch_Click(object sender, EventArgs e)
+        {
+            resultBox.Items.Clear();
+            string q = txtQuery.Text.Trim();
+
+            if (cboMode.SelectedIndex == 0)
+            {
+                // Name contains
+                var results = employees.Where(x => x.Name.IndexOf(q, StringComparison.OrdinalIgnoreCase) >= 0);
+                foreach (var r in results)
+                {
+                    resultBox.Items.Add($"{r.IdNumber} | {r.Name} | {r.Department} | {r.Position}");
+                }
+            }
+            else
+            {
+                // Id exact
+                if (int.TryParse(q, out int id))
+                {
+                    var r = employees.FirstOrDefault(x => x.IdNumber == id);
+                    if (r != null)
+                    {
+                        resultBox.Items.Add($"{r.IdNumber} | {r.Name} | {r.Department} | {r.Position}");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("請輸入有效的員工編號。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+    }
+
+    public partial class EditForm : Form
+    {
+        private List<Employee> employees;
+        private Employee current = null;
+
+        public EditForm(List<Employee> employees)
+        {
+            this.employees = employees;
+            InitializeComponent();
+
+            this.btnSearch.Click += BtnSearch_Click;
+            this.btnSave.Click += BtnSave_Click;
+            this.btnClose.Click += (s, e) => this.Close();
+
+            this.richTextBox1.Text = "輸入員工編號後按查詢，修改欄位再按儲存。";
+        }
+
+        private void BtnSearch_Click(object sender, EventArgs e)
+        {
+            if (!int.TryParse(txtId.Text.Trim(), out int id))
+            {
+                MessageBox.Show("請輸入有效的員工編號。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            current = employees.FirstOrDefault(x => x.IdNumber == id);
+            if (current == null)
+            {
+                MessageBox.Show("找不到該員工。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            txtName.Text = current.Name;
+            txtDepartment.Text = current.Department;
+            txtPosition.Text = current.Position;
+        }
+
+        private void BtnSave_Click(object sender, EventArgs e)
+        {
+            if (current == null)
+            {
+                MessageBox.Show("請先查詢要修改的員工。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // 檢查是否變更編號且衝突
+            if (!int.TryParse(txtId.Text.Trim(), out int newId))
+            {
+                MessageBox.Show("員工編號必須為整數。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (newId != current.IdNumber && employees.Any(x => x.IdNumber == newId))
+            {
+                MessageBox.Show("新員工編號已被使用。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            current.IdNumber = newId;
+            current.Name = txtName.Text.Trim();
+            current.Department = txtDepartment.Text.Trim();
+            current.Position = txtPosition.Text.Trim();
+
+            MessageBox.Show("已儲存。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+    }
+}

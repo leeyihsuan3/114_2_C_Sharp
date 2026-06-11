@@ -1,0 +1,13 @@
+C:\Users\m303\Desktop\114_2_C_Sharp\115_06_11\期末考第二題\期末考第二題\obj\Debug\期末考第二題.csproj.AssemblyReference.cache
+C:\Users\m303\Desktop\114_2_C_Sharp\115_06_11\期末考第二題\期末考第二題\obj\Debug\期末考第二題.Properties.Resources.resources
+C:\Users\m303\Desktop\114_2_C_Sharp\115_06_11\期末考第二題\期末考第二題\obj\Debug\期末考第二題.csproj.GenerateResource.cache
+C:\Users\m303\Desktop\114_2_C_Sharp\115_06_11\期末考第二題\期末考第二題\obj\Debug\期末考第二題.csproj.CoreCompileInputs.cache
+C:\Users\m303\Desktop\114_2_C_Sharp\115_06_11\期末考第二題\期末考第二題\obj\Debug\期末考第二題.Form1.resources
+C:\Users\m303\Desktop\114_2_C_Sharp\115_06_11\期末考第二題\期末考第二題\bin\Debug\期末考第二題.exe.config
+C:\Users\m303\Desktop\114_2_C_Sharp\115_06_11\期末考第二題\期末考第二題\bin\Debug\期末考第二題.exe
+C:\Users\m303\Desktop\114_2_C_Sharp\115_06_11\期末考第二題\期末考第二題\bin\Debug\期末考第二題.pdb
+C:\Users\m303\Desktop\114_2_C_Sharp\115_06_11\期末考第二題\期末考第二題\obj\Debug\期末考第二題.exe
+C:\Users\m303\Desktop\114_2_C_Sharp\115_06_11\期末考第二題\期末考第二題\obj\Debug\期末考第二題.pdb
+C:\Users\m303\Desktop\114_2_C_Sharp\115_06_11\期末考第二題\期末考第二題\obj\Debug\期末考第二題.exe.config
+C:\Users\m303\Desktop\114_2_C_Sharp\115_06_11\期末考第二題\期末考第二題\obj\Debug\期末考第二題.AddForm.resources
+C:\Users\m303\Desktop\114_2_C_Sharp\115_06_11\期末考第二題\期末考第二題\obj\Debug\期末考第二題.SearchForm.resources
